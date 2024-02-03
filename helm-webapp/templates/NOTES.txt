@@ -1,2 +1,5 @@
 servicename=$(k get service -l "app={{ .Values.appName }}" -o jsonpath="{.items[0].metadata.name}")
 kubectl --namespace <namespace> port-forward service/{{ .Values.appName }} 8888:80
+
+kubectl port-forward service/myhelmapp 8811:80 -n webapp
+
